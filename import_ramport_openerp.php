@@ -1,4 +1,13 @@
 <?php
+/**
+ * Object to manage integration with RamPort software
+ *
+ * @author mindfire
+ * @version 2.0
+ * @package pts
+ * @subpackage custom
+ */
+
 require('ramport_openerp.php');
 
 #$ramport_folder = 'sample/';
