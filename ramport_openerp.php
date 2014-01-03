@@ -226,8 +226,14 @@ class Ramport {
 					$aResult = pg_fetch_assoc($dup_result);
 					$old_line = $aResult['line'];
 					if ($old_line != $line) {
-						$sql = "UPDATE shipment_ramport SET (table_name = '".pg_escape_string($this->current_table)."', line = '".pg_escape_string($line)."', rid = '".pg_escape_string($id)."', status = '".pg_escape_string($status)."');";
+						$sql = "UPDATE shipment_ramport SET table_name = '".pg_escape_string($this->current_table)."', line = '".pg_escape_string($line)."', rid = '".pg_escape_string($id)."', status = '".pg_escape_string($status)."';";
 						$result = pg_exec($this->link, $sql);
+						if($result > 0) {
+							// success
+						} else {
+							// error
+							echo $sql . "----------\n"
+						}
 						$this->update_count = $this->update_count +1;
 						echo "update_count = ".$this->update_count;
 						if (!$result) {
