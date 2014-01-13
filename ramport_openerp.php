@@ -181,10 +181,10 @@ class Ramport {
 			if ($this->current_table==Ramport::TBL_NOTES) {
 				$id = trim(substr($line, 0, 7));
 				//Check if duplicte record doesn't exist then go for insert
-				$qry = "SELECT DISTINCT * FROM shipment_abi_results WHERE file_number='".$id."';";
+				$qry = "SELECT DISTINCT * FROM shipment_abi_results WHERE file_number='".pg_escape_string($id)."';";
 				$dup_result = pg_exec($this->link, $qry);
 				$status = 'imported';
-				$date_time = $date_time = $this->convert_date(substr($line, 7, 8)).' '.substr($line, 15, 8);
+				$date_time = $this->convert_date(substr($line, 7, 8)).' '.substr($line, 15, 8);
 				
 				if (pg_numrows($dup_result) == 0) {
 					$sql = "INSERT INTO shipment_abi_results(file_number, line, date_time, status) VALUES('".pg_escape_string($id)."', '".pg_escape_string($line)."', '".pg_escape_string($date_time)."', '".pg_escape_string($status)."');";
