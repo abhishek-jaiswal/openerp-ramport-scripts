@@ -198,7 +198,7 @@ class Ramport {
 					$aResult = pg_fetch_assoc($dup_result);
 					$old_line = $aResult['line'];
 					if ($old_line != $line) {
-						$sql = "UPDATE shipment_abi_results SET (file_number = '".pg_escape_string($id)."', line = '".pg_escape_string($line)."', date_time = '".pg_escape_string($date_time)."', status = '".pg_escape_string($status)."');";
+						$sql = "UPDATE shipment_abi_results SET file_number = '".pg_escape_string($id)."', line = '".pg_escape_string($line)."', date_time = '".pg_escape_string($date_time)."', status = '".pg_escape_string($status)."';";
 						$result = pg_exec($this->link, $sql);
 						$this->update_count = $this->update_count +1;
 						//echo "update_count = ".$this->update_count;
@@ -790,4 +790,43 @@ class Ramport {
 		}
 	}
 	
+}
+
+
+/**
+ * Generic class to store options
+ *
+ * @author Mindfire
+ * @version 1.0
+ * @package pts
+ * @subpackage core
+ */
+class Options {
+	private $aParam = array();
+
+	function __construct($aParam = array()) {
+		$this->aParam = $aParam;
+	}
+
+	/**
+	 * Magical method called when accessing inexistent property
+	 *
+	 *
+	 * @access public
+	 * @param string
+	 */
+	public function __set($name, $value) {
+		$this->aParam[$name] = $value; // Ex: $o->name = 'John Doe';
+	}
+
+	/**
+	 * Magical method called when accessing inexistent property
+	 *
+	 *
+	 * @access public
+	 * @param string
+	 */
+	public function __get($name) {
+		return isset($this->aParam[$name]) ? $this->aParam[$name] : ''; // Ex: echo $o->name;
+	}
 }

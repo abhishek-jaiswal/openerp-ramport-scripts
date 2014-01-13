@@ -24,7 +24,7 @@ $Ramport = new Ramport();
 //$Ramport->load_to_cache(Ramport::TBL_ENTRY, 			$ramport_folder);
 //$Ramport->load_to_cache(Ramport::TBL_FDADATA, 			$ramport_folder_2);
 //$Ramport->load_to_cache(Ramport::TBL_CONTAINERS, 		$ramport_folder);
-//$Ramport->load_to_cache(Ramport::TBL_NOTES, 			$ramport_folder);
+$Ramport->load_to_cache(Ramport::TBL_NOTES, 			$ramport_folder);
 //$Ramport->load_to_cache(Ramport::TBL_CUSTOMS_ST, 		$ramport_folder);
 //$Ramport->load_to_cache(Ramport::TBL_FIRMS, 		    $ramport_folder);
 //$Ramport->load_to_cache(Ramport::TBL_MIDS, 		        $ramport_folder);
@@ -41,10 +41,10 @@ $Ramport = new Ramport();
 //$Ramport->import(Ramport::TBL_ENTRY, 			$retry_errors); // Products
 //$Ramport->import(Ramport::TBL_FDADATA, 			$retry_errors);
 //$Ramport->import(Ramport::TBL_CONTAINERS, 		$retry_errors);
-$Ramport->import(Ramport::TBL_NOTES, 			$retry_errors);
+//$Ramport->import(Ramport::TBL_NOTES, 			$retry_errors);
 //$Ramport->import(Ramport::TBL_FIRMS,     		$retry_errors);
 //$Ramport->import(Ramport::TBL_MIDS,     		$retry_errors);
-$Ramport->import_customs_statement();
+//$Ramport->import_customs_statement();
 
 $t1 = date('H:i:s');
 $h1 = substr($t1, 0, 2);
