@@ -6,4 +6,6 @@ hts related import files
 
 3)back of shipment_hts which can be imported to any database includes same table structure
 
+4) run sql UPDATE shipment_hts SET  hts_heading_id = old_heading_id WHERE id = id
+
 
